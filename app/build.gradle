@@ -17,6 +17,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            //FIXME: Place API KEY HERE
+            buildConfigField("String", "API_KEY", '"API_KEY_HERE"')
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

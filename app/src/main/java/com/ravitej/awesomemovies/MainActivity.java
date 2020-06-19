@@ -16,6 +16,7 @@ import com.ravitej.awesomemovies.MovieAdapter.OnMovieClickListener;
 import com.ravitej.awesomemovies.domainmodel.Movie;
 import com.ravitej.awesomemovies.repository.MovieRepository;
 import com.ravitej.awesomemovies.repository.impl.MovieRepositoryImpl;
+import io.reactivex.disposables.Disposable;
 import java.util.ArrayList;
 
 public class MainActivity
@@ -53,16 +54,18 @@ public class MainActivity
         fetchPopularMovies();
     }
 
+    @SuppressWarnings("CheckResult")
     private void fetchPopularMovies() {
-        movieRepository.fetchPopularMovies()
+        Disposable disposable = movieRepository.fetchPopularMovies()
             .subscribe(
                 movieDTO -> movieAdapter.updateList(movieDTO),
                 throwable -> Log.e(TAG, "Error" + throwable.getMessage())
             );
     }
 
+    @SuppressWarnings("CheckResult")
     private void fetchTopRatedMovies() {
-        movieRepository.fetchTopRatedMovies()
+        Disposable disposable = movieRepository.fetchTopRatedMovies()
             .subscribe(
                 movieDTO -> movieAdapter.updateList(movieDTO),
                 throwable -> Log.e(TAG, "Error" + throwable.getMessage())

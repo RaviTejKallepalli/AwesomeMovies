@@ -10,7 +10,7 @@
   android:layout_width="match_parent">
   <androidx.constraintlayout.widget.ConstraintLayout
     tools:context=".MovieDetailsActivity"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent">
 
     <ImageView
@@ -18,6 +18,7 @@
       android:id="@+id/movie_poster_iv"
       android:layout_height="250dp"
       android:layout_width="match_parent"
+      android:contentDescription="@string/moviePosterContentDescription"
       android:scaleType="fitCenter"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

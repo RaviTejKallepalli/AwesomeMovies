@@ -5,7 +5,8 @@
   <string name="release_date">Release date:</string>
   <string name="not_available">Movie data is not available</string>
   <string name="sortByPopular">SORT BY POPULAR</string>
-  <string name="sortByTopRated">SORT BY TOP RATED</string>
+  <string name="sortByTopRated">SORT BY RATING</string>
+  <string name="favoriteMovies">Favorite Movies</string>
 
   <string name="moviePosterContentDescription">Movie poster</string>
 </resources>

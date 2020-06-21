@@ -50,7 +50,7 @@ public class MainActivity
     }
 
     private void fetchData() {
-        movieRepository = new MovieRepositoryImpl();
+        movieRepository = new MovieRepositoryImpl(this.getApplication());
         fetchPopularMovies();
     }
 
@@ -66,6 +66,14 @@ public class MainActivity
     @SuppressWarnings("CheckResult")
     private void fetchTopRatedMovies() {
         Disposable disposable = movieRepository.fetchTopRatedMovies()
+            .subscribe(
+                movieDTO -> movieAdapter.updateList(movieDTO),
+                throwable -> Log.e(TAG, "Error" + throwable.getMessage())
+            );
+    }
+
+    private void fetchFavoriteMovies() {
+        Disposable disposable = movieRepository.fetchFavoriteMovies()
             .subscribe(
                 movieDTO -> movieAdapter.updateList(movieDTO),
                 throwable -> Log.e(TAG, "Error" + throwable.getMessage())
@@ -89,6 +97,11 @@ public class MainActivity
             case R.id.sortByTopRated:
                 fetchTopRatedMovies();
                 break;
+            case R.id.favoriteMovies:
+                fetchFavoriteMovies();
+                break;
+            default:
+                super.onOptionsItemSelected(item);
         }
 
         return true;

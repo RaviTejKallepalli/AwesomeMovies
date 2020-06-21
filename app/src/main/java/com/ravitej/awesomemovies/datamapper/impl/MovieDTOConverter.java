@@ -29,6 +29,8 @@ public class MovieDTOConverter implements DataMapper<MovieDTO, List<Movie>> {
                     .releaseDate(movieItem.release_date)
                     .synopsis(movieItem.overview)
                     .userRating(movieItem.voteAverage)
+                    .movieId(movieItem.id)
+                    .isfavorite(false)
                     .build();
 
                 movies.add(movie);

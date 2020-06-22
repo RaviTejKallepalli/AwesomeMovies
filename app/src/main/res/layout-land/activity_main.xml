@@ -7,7 +7,9 @@
   <androidx.constraintlayout.widget.ConstraintLayout
     tools:context=".mainactivity.MainActivity"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:paddingStart="72dp"
+    android:paddingEnd="72dp">
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/movies_rv"
@@ -18,7 +20,7 @@
       tools:listitem="@layout/movie_list_item"
       tools:orientation="vertical"
       tools:scrollbars="vertical"
-      tools:spanCount="2" />
+      tools:spanCount="3" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

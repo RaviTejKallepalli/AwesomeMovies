@@ -5,20 +5,17 @@
 
   </data>
   <androidx.constraintlayout.widget.ConstraintLayout
-    tools:context=".mainactivity.MainActivity"
-    android:layout_height="match_parent"
+    android:layout_height="250dp"
+    android:layout_margin="2dp"
     android:layout_width="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/movies_rv"
+    <ImageView
+      tools:src="@tools:sample/backgrounds/scenic"
+      android:contentDescription="@string/moviePosterContentDescription"
+      android:id="@+id/movie_poster_iv"
       android:layout_height="match_parent"
       android:layout_width="match_parent"
-      tools:itemCount="20"
-      tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-      tools:listitem="@layout/movie_list_item"
-      tools:orientation="vertical"
-      tools:scrollbars="vertical"
-      tools:spanCount="2" />
+      android:scaleType="fitXY" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

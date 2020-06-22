@@ -87,7 +87,10 @@ public class MovieDetailsActivity extends AppCompatActivity implements OnTrailer
         viewModel.getFavoriteLiveData()
             .observe(
                 this,
-                value -> invalidateOptionsMenu()
+                value -> {
+                    movie.setFavorite(value);
+                    invalidateOptionsMenu();
+                }
             );
 
         viewModel.getTrailersLiveData()

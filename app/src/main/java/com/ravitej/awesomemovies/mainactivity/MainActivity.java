@@ -47,7 +47,7 @@ public class MainActivity
     private void initRecyclerView() {
         movieAdapter = new MovieAdapter(this, new ArrayList<>());
 
-        LayoutManager layoutManager = new GridLayoutManager(this, GRID_SPAN_COUNT);
+        LayoutManager layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.grid_span));
         binding.moviesRv.setLayoutManager(layoutManager);
 
         binding.moviesRv.setAdapter(movieAdapter);

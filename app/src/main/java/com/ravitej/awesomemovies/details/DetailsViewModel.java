@@ -43,7 +43,7 @@ public class DetailsViewModel extends ViewModel {
     //FIXME: Should be moved to constructor?
     public void init(Movie movie) {
         this.movie = movie;
-        favoriteLiveData.setValue(movie.isFavorite());
+        getMovie(movie.getMovieId());
         getTrailers(movie.getMovieId());
         getReviews(movie.getMovieId());
     }
@@ -87,4 +87,10 @@ public class DetailsViewModel extends ViewModel {
             .subscribe(() -> favoriteLiveData.setValue(movie.isFavorite()));
     }
 
+    public void getMovie(int movieId) {
+        movieDao.fetchMovie(movieId)
+            .observeOn(rxSchedularProvider.uiSchedular())
+            .subscribeOn(rxSchedularProvider.diskSchedular())
+            .subscribe(movie -> favoriteLiveData.setValue(movie.isFavorite()));
+    }
 }

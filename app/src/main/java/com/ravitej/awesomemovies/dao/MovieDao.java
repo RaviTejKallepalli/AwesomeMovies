@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import com.ravitej.awesomemovies.domainmodel.Movie;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import java.util.List;
 
@@ -20,4 +21,7 @@ public interface MovieDao {
 
     @Query("DELETE FROM movie_table WHERE movie_id = :movieId")
     Completable deleteMovie(int movieId);
+
+    @Query("SELECT * FROM movie_table WHERE movie_id = :movieId")
+    Maybe<Movie> fetchMovie(int movieId);
 }

@@ -45,7 +45,6 @@ public class DetailsViewModel extends ViewModel {
         init(movie);
     }
 
-    //FIXME: Should be moved to constructor?
     public void init(Movie movie) {
         getMovie(movie.getMovieId());
         getTrailers(movie.getMovieId());

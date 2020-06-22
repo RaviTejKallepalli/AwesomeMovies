@@ -13,7 +13,6 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 import java.util.List;
 
-//FIXME: Which class is responsible to identify the network connection and get the stale/stored data?
 public class MovieRepositoryImpl
     implements MovieRepository {
 
@@ -47,7 +46,6 @@ public class MovieRepositoryImpl
             .flatMap(movieDTO -> Single.just(movieDTOConverter.convert(movieDTO)));
     }
 
-    //TODO: Should i return LiveData instead of Observable?
     @Override
     public Observable<List<Movie>> fetchFavoriteMovies() {
         return movieDao.getAllFavoriteMovies()

@@ -49,7 +49,6 @@ public class MovieDetailsActivity extends AppCompatActivity implements OnTrailer
         initRecyclerView();
     }
 
-    //FIXME: Why review recycler view is showing only first few items?
     private void initRecyclerView() {
         trailerAdapter = new TrailerAdapter(new ArrayList<>(), this);
         LayoutManager trailerLayoutManager = new LinearLayoutManager(this);
@@ -123,7 +122,6 @@ public class MovieDetailsActivity extends AppCompatActivity implements OnTrailer
         binding.releaseDateTv.setText(movie.getReleaseDate());
     }
 
-    //FIXME: Why the fav icon is defaulting to boarder icon?
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.movie_detail_menu, menu);
@@ -150,7 +148,6 @@ public class MovieDetailsActivity extends AppCompatActivity implements OnTrailer
         }
     }
 
-    //FIXME?
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 

@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView.LayoutManager;
-import com.google.android.material.snackbar.Snackbar;
 import com.ravitej.awesomemovies.R;
 import com.ravitej.awesomemovies.databinding.ActivityMainBinding;
 import com.ravitej.awesomemovies.details.MovieDetailsActivity;
@@ -61,19 +60,6 @@ public class MainActivity
             .observe(this, movieList -> {
                 movieAdapter.updateList(movieList);
             });
-
-        viewModel.getIsOffline()
-            .observe(
-                this,
-                isOffline -> {
-                    if (isOffline) {
-                        Snackbar.make(
-                            binding.getRoot(),
-                            "No network connection. Showing your favorite movies",
-                            Snackbar.LENGTH_LONG
-                        ).show();
-                    }
-                });
     }
 
     @Override

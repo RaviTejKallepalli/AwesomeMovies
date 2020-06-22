@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  tools:context=".MainActivity"
-  android:layout_height="match_parent"
-  android:layout_width="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/movies_rv"
+  </data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".mainactivity.MainActivity"
     android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    tools:itemCount="20"
-    tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    tools:listitem="@layout/movie_list_item"
-    tools:orientation="vertical"
-    tools:scrollbars="vertical"
-    tools:spanCount="1"/>
+    android:layout_width="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/movies_rv"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      tools:itemCount="20"
+      tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+      tools:listitem="@layout/movie_list_item"
+      tools:orientation="vertical"
+      tools:scrollbars="vertical"
+      tools:spanCount="1" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

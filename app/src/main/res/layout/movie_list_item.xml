@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_height="250dp"
-  android:layout_margin="4dp"
-  android:layout_width="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
 
-  <ImageView
-    tools:src="@tools:sample/backgrounds/scenic"
-    android:contentDescription="@string/moviePosterContentDescription"
-    android:id="@+id/movie_poster_iv"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:scaleType="centerCrop" />
+  </data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="250dp"
+    android:layout_margin="4dp"
+    android:layout_width="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+      tools:src="@tools:sample/backgrounds/scenic"
+      android:contentDescription="@string/moviePosterContentDescription"
+      android:id="@+id/movie_poster_iv"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:scaleType="centerCrop" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

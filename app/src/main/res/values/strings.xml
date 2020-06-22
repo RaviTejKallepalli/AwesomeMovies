@@ -9,4 +9,6 @@
   <string name="favoriteMovies">Favorite Movies</string>
 
   <string name="moviePosterContentDescription">Movie poster</string>
+  <string name="trailers">Trailers</string>
+  <string name="reviews">Reviews</string>
 </resources>

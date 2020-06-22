@@ -22,13 +22,13 @@ android {
         debug {
             minifyEnabled false
             //FIXME: Place API KEY HERE
-            buildConfigField("String", "API_KEY", '"3ddb3bad87271ff98bac18734a2591f6"')
+            buildConfigField("String", "API_KEY", '"API_KEY_HERE"')
         }
 
         release {
             minifyEnabled false
             //FIXME: Place API KEY HERE
-            buildConfigField("String", "API_KEY", '"3ddb3bad87271ff98bac18734a2591f6"')
+            buildConfigField("String", "API_KEY", '"API_KEY_HERE"')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -1,6 +1,7 @@
 package com.ravitej.awesomemovies.details;
 
 import android.app.Application;
+import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -19,6 +20,7 @@ import java.util.List;
 @SuppressWarnings("CheckResult")
 public class DetailsViewModel extends ViewModel {
 
+    private static final String TAG = DetailsViewModel.class.getSimpleName();
     private Movie movie;
     private RxSchedularProvider rxSchedularProvider;
     private MovieDatabase movieDatabase;
@@ -29,7 +31,7 @@ public class DetailsViewModel extends ViewModel {
     private TrailerRepository trailerRepository;
     private ReviewRepository reviewRepository;
 
-    public DetailsViewModel(Application application) {
+    public DetailsViewModel(Application application, Movie movie) {
         rxSchedularProvider = RxSchedularsProviderImpl.getInstance();
         favoriteLiveData = new MutableLiveData<>(false);
         movieDatabase = MovieDatabase.getsInstance(application);
@@ -38,11 +40,13 @@ public class DetailsViewModel extends ViewModel {
         trailersLiveData = new MutableLiveData<>(new ArrayList<>());
         reviewsLiveData = new MutableLiveData<>(new ArrayList<>());
         reviewRepository = new ReviewRepository();
+        Log.e(TAG, "Details ViewModel created");
+        this.movie = movie;
+        init(movie);
     }
 
     //FIXME: Should be moved to constructor?
     public void init(Movie movie) {
-        this.movie = movie;
         getMovie(movie.getMovieId());
         getTrailers(movie.getMovieId());
         getReviews(movie.getMovieId());
@@ -51,12 +55,18 @@ public class DetailsViewModel extends ViewModel {
 
     public void getReviews(int movieId) {
         reviewRepository.getReviews(movieId)
-            .subscribe(list -> reviewsLiveData.setValue(list));
+            .subscribe(
+                list -> reviewsLiveData.setValue(list),
+                throwable -> Log.e(TAG, throwable.toString())
+            );
     }
 
     public void getTrailers(int movieId) {
         trailerRepository.getTrailers(movieId)
-            .subscribe(list -> trailersLiveData.setValue(list));
+            .subscribe(
+                list -> trailersLiveData.setValue(list),
+                throwable -> Log.e(TAG, throwable.toString())
+            );
     }
 
     public LiveData<List<Trailer>> getTrailersLiveData() {

@@ -80,10 +80,10 @@ public class MovieDetailsActivity extends AppCompatActivity implements OnTrailer
     }
 
     private void initViewModel() {
-        viewModelFactory = new DetailsViewModelFactory(this.getApplication());
+        viewModelFactory = new DetailsViewModelFactory(this.getApplication(), movie);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(DetailsViewModel.class);
 
-        viewModel.init(movie);
+//        viewModel.init(movie);
         viewModel.getFavoriteLiveData()
             .observe(
                 this,

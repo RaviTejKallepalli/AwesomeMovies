@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 import com.ravitej.awesomemovies.domainmodel.Movie;
 import com.ravitej.awesomemovies.repository.MovieRepository;
 import com.ravitej.awesomemovies.repository.impl.MovieRepositoryImpl;
+import com.ravitej.awesomemovies.utils.NetworkConnectionUtils;
 import io.reactivex.disposables.Disposable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,16 @@ public class MainViewModel extends ViewModel {
 
     private MovieRepository movieRepository;
     private MutableLiveData<List<Movie>> movieListLiveData;
+    private Application application;
+    private MutableLiveData<Boolean> isOffline;
 
     public MainViewModel(Application application) {
         movieRepository = new MovieRepositoryImpl(application);
         movieListLiveData = new MutableLiveData<>(new ArrayList<>());
+        this.application = application;
+        isOffline = new MutableLiveData<>();
+
+        init();
     }
 
     @SuppressWarnings("CheckResult")
@@ -51,11 +58,21 @@ public class MainViewModel extends ViewModel {
             );
     }
 
+    public LiveData<Boolean> getIsOffline() {
+        return isOffline;
+    }
+
     public LiveData<List<Movie>> getMovieListLiveData() {
         return movieListLiveData;
     }
 
     public void init() {
-        fetchPopularMovies();
+        if (NetworkConnectionUtils.isConnected(application)) {
+            fetchPopularMovies();
+            isOffline.setValue(false);
+        } else {
+            isOffline.setValue(true);
+            fetchFavoriteMovies();
+        }
     }
 }

@@ -15,6 +15,7 @@
       android:layout_marginStart="4dp"
       android:layout_width="wrap_content"
       android:src="@drawable/ic_baseline_play_arrow_24"
+      android:contentDescription="@string/trailerIconContentDesc"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 

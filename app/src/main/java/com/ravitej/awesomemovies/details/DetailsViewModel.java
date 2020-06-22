@@ -16,6 +16,7 @@ import com.ravitej.awesomemovies.utils.impl.RxSchedularsProviderImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("CheckResult")
 public class DetailsViewModel extends ViewModel {
 
     private Movie movie;

@@ -6,7 +6,7 @@
     android:icon="@drawable/ic_fav_white"
     android:id="@+id/favorite"
     android:orderInCategory="1"
-    android:title="Add to favorite"
+    android:title="@string/addToFavorite"
     app:showAsAction="ifRoom" />
 
 </menu>
